@@ -1,5 +1,6 @@
+import org.junit.Assert;
 import org.junit.Test;
-
+import java.io.File;
 import static org.junit.Assert.*;
 
 public class ROT13Test {
@@ -86,6 +87,16 @@ public class ROT13Test {
         System.out.println(actual);
         // Then
         assertTrue(actual.equals(Q1));
+    }
+    @Test
+    public void cryptMoreThan13(){
+        String s1 = "ABCDEF";
+
+        // When
+        ROT13 cipher = new ROT13('a' , 'z');
+        String actual = cipher.crypt(s1);
+        // Then
+        assertTrue(actual.equals(s1));
     }
 
 }
